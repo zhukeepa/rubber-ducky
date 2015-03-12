@@ -9,3 +9,9 @@ Send to: <%= @message.emails.to_sentence %>
   <br />
   <%= submit_tag "Send!" %>
 <% end %>
+
+<div id="timer"></div>
+
+<%= javascript_tag do %> 
+  Timer.start("<%= @message.timer %>")
+<% end %>
