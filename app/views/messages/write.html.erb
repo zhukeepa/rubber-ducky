@@ -1,0 +1,11 @@
+<h1> <%= @message.title %> </h1>
+
+Send to: <%= @message.emails.to_sentence %>
+<br />
+<%= form_tag :messages_send_message do %>
+  <%= text_area_tag :body, nil, size: "100x10" %>
+  <%= hidden_field_tag :title, @message.title %>
+  <%= hidden_field_tag :emails, @message.emails %>
+  <br />
+  <%= submit_tag "Send!" %>
+<% end %>
