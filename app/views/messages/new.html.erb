@@ -1,0 +1,12 @@
+<%= form_tag :messages do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+  <br />
+  <%= label_tag :timer %>
+  <%= number_field_tag :timer %>
+  <br />
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>  
+  <br />
+  <%= submit_tag "Start writing!" %>
+<% end %>
