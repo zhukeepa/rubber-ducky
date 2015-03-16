@@ -4,14 +4,29 @@ class MessagesController < ApplicationController
 
   def write
     @message = Message.new(message_params)
+    @message.sent = false
+    @message.save
+    DelayedMessageWorker.perform_in(@message.time_limit.seconds, @message.id)
   end
 
   def send_message
-    render text: message_params
+    @message = Message.find(params[:id])
+    @message.update(body: params[:body], sent: true)
+
+    MessagesMailer.email(@message.id).deliver_now
+    render text: "Email sent!"
   end
+
+  # implement autosave
+  # refactoring ??? 
+  # seems to be sending message, like, 3 times
+  # add OAunth or something?? 
+  # fix forms. 
+  # take time_limit out of messages. 
+  # passing in hidden_field_tag
 
 private
   def message_params 
-    params.permit(:title, :timer, :emails, :body)
+    params[:message].permit(:title, :time_limit, :emails, :body)
   end
 end

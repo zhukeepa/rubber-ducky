@@ -1,16 +1,8 @@
-class Message
-  include ActiveModel::Model
+class Message < ActiveRecord::Base
+  validates :title, :time_limit, :emails, presence: true
 
-  attr_accessor :title
-  attr_reader :emails, :timer
-
-  validates :title, :timer, :emails, presence: true
-
-  def emails=(emails)
-    @emails = emails.split(',').map(&:strip)
-  end
-
-  def timer=(timer)
-    @timer = timer.to_i*60
+  def time_limit=(time_limit)
+    write_attribute('time_limit', time_limit.to_i*60)
+    # self.time_limit = time_limit.to_i*60
   end
 end

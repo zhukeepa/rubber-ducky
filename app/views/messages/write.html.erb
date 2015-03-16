@@ -1,11 +1,12 @@
 <h1> <%= @message.title %> </h1>
 
-Send to: <%= @message.emails.to_sentence %>
+Send to: <%= @message.emails %> 
 <br />
 <%= form_tag :messages_send_message do %>
   <%= text_area_tag :body, nil, size: "100x10" %>
   <%= hidden_field_tag :title, @message.title %>
   <%= hidden_field_tag :emails, @message.emails %>
+  <%= hidden_field_tag :id, @message.id %>
   <br />
   <%= submit_tag "Send!" %>
 <% end %>
@@ -13,5 +14,5 @@ Send to: <%= @message.emails.to_sentence %>
 <div id="timer"></div>
 
 <%= javascript_tag do %> 
-  Timer.start("<%= @message.timer %>")
+  Timer.start("<%= @message.time_limit %>")
 <% end %>
