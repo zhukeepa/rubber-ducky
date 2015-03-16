@@ -3,7 +3,7 @@
 Send to: <%= @message.emails %> 
 <br />
 <%= form_tag :messages_send_message do %>
-  <%= text_area_tag :body, nil, size: "100x10" %>
+  <%= text_area_tag :body, nil, size: "100x10", class: 'ckeditor' %>
   <%= hidden_field_tag :title, @message.title %>
   <%= hidden_field_tag :emails, @message.emails %>
   <%= hidden_field_tag :id, @message.id %>
