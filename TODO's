@@ -8,7 +8,8 @@ refactoring
   - writing tests
   - implement with global id's
   - how to clear a Sidekiq queue?
+  - refactor javascript
+  
 bug: 
 Implement:
-  - autosave
   - add OAunth or something??

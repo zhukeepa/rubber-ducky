@@ -17,6 +17,12 @@ class MessagesController < ApplicationController
     render text: "Email sent!"
   end
 
+  def autosave
+    @message = Message.find(params[:id])
+    @message.update(body: params[:body])
+    render text: ''
+  end
+
   def fail
     render text: "You failed! Whatever message was in the textbox got sent."
   end
