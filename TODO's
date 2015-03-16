@@ -1,0 +1,14 @@
+TODO
+  - learn how global id's work
+refactoring
+  - passing in hidden_field_tag - kosher? 
+  - the forms look weird. 
+  - the routing looks weird. 
+  - Messages.rb -- how is the code? what's the deal with write_attribute? and self. vs instance variables?
+  - writing tests
+  - implement with global id's
+  - how to clear a Sidekiq queue?
+bug: 
+Implement:
+  - autosave
+  - add OAunth or something??

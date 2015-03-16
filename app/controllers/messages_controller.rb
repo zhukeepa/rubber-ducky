@@ -17,13 +17,9 @@ class MessagesController < ApplicationController
     render text: "Email sent!"
   end
 
-  # implement autosave
-  # refactoring ??? 
-  # seems to be sending message, like, 3 times
-  # add OAunth or something?? 
-  # fix forms. 
-  # take time_limit out of messages. 
-  # passing in hidden_field_tag
+  def fail
+    render text: "You failed! Whatever message was in the textbox got sent."
+  end
 
 private
   def message_params 
