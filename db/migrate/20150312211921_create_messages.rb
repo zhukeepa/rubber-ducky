@@ -4,7 +4,8 @@ class CreateMessages < ActiveRecord::Migration
       t.string :title
       t.string :body
       t.string :emails
-      t.integer :timer
+      t.integer :time_limit
+      t.boolean :sent, default: false
 
       t.timestamps null: false
     end

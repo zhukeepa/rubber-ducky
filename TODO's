@@ -1,13 +1,8 @@
 refactoring
-  - writing teststom
-  - how to clear a Sidekiq queue?
-
-  - autosave
-  - migration for setting val to false
-  - ruby if unless style
-  - setting flashes in javascript
-bug: 
-  - can't access textarea text
+  - put autosave all under one method
+  - validations 
+  - make it one page webpage
+  - 
 
 Implement:
   - add OAunth or something

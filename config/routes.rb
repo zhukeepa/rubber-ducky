@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   get 'fail', to: 'messages#fail'
 
   resources :messages, only: [:create, :edit, :update] do 
-    patch 'autosave', to: 'messages#autosave'
+    patch 'autosave', on: :member
   end
 end
