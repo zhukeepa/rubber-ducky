@@ -1,6 +1,6 @@
 class MessagesMailer < ApplicationMailer
   def email(message)
-ddfsa sdfas dfsa dfadfdd
+fgdgfdgsdfsg
     return if message.sent
 
     @message = message

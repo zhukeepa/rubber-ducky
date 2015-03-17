@@ -1,11 +1,3 @@
-class MessageWorker
-  include Sidekiq::Worker
-
-  def perform(name, count)
-    puts 'Doing hard work'
-  end
-end
-
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :autosave]
   
@@ -15,7 +7,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create!(message_params)
-    MessagesMailer.email(@message).deliver_later(wait: @message.time_limit)
+    MessagesMailer.email(@message).deliver_later(wait: 2.seconds)#@message.time_limit)
 
     redirect_to edit_message_url(@message)
   end
@@ -25,9 +17,7 @@ class MessagesController < ApplicationController
 
   def update
     @message.update!(message_params)
-    MessageWorker.perform_in 3.seconds, "hello", 24
-    ActionMailer::MessageDelivery.new(MessagesMailer, :email, @message).deliver_later
-#    MessagesMailer.email(@message).deliver_later
+    MessagesMailer.email(@message).deliver_later
     @message.update(sent: true)
 
     redirect_to root_url, notice: "Message sent!"
