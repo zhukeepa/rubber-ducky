@@ -1,0 +1,15 @@
+<h1> <%= @message.title %> </h1>
+
+Send to: <%= @message.emails %> 
+<br />
+<%= form_for @message, data: { autosave_url: message_autosave_path(@message) } do |f| %>
+  <%= f.text_area :body, size: "100x10" %>
+  <br />
+  <%= f.submit "Send!" %>
+<% end %>
+
+<div id="timer"></div>
+
+<%= javascript_tag do %> 
+  Timer.start("<%= @message.time_limit %>")
+<% end %>

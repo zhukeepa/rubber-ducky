@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'messages#new'
-  post '/', to: 'messages#write'
-  post 'messages/send_message'
-  post 'autosave', to: 'messages#autosave'
   get 'fail', to: 'messages#fail'
+
+  resources :messages, only: [:create, :edit, :update] do 
+    patch 'autosave', to: 'messages#autosave'
+  end
 end

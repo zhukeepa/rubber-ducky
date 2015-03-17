@@ -17,8 +17,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'figaro'
 gem 'sidekiq'
 
+
 gem 'ckeditor_rails'
 
+gem 'annotate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

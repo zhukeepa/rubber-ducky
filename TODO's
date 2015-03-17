@@ -1,17 +1,15 @@
-TODO
-  - learn how global id's work
 refactoring
-  - passing in hidden_field_tag - kosher? 
-  - the forms look weird. 
-  - the routing looks weird. 
-  - Messages.rb -- how is the code? what's the deal with write_attribute? and self. vs instance variables?
-  - writing tests
-  - implement with global id's
+  - writing teststom
   - how to clear a Sidekiq queue?
-  - refactor javascript
-  
+
+  - autosave
+  - migration for setting val to false
+  - ruby if unless style
+  - setting flashes in javascript
 bug: 
+  - can't access textarea text
+
 Implement:
-  - add OAunth or something??
-  - simple editor for ckeditor?
+  - add OAunth or something
+  - how to set simple editor for ckeditor?
   - email validations

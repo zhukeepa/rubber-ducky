@@ -1,7 +1,8 @@
 class MessagesMailer < ApplicationMailer
-  def email(id)
-    message = Message.find(id)
-    @body = message.body
-    mail(from: "alex.zhu.1994@gmail.com", to: message.emails, subject: message.title)
+  def email(message)
+    return if message.sent
+
+    @message = message
+    mail(from: "alex.zhu.1994@gmail.com", to: @message.emails, subject: @message.title)
   end
 end

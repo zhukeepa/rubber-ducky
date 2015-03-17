@@ -1,13 +1,27 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  body       :string
+#  emails     :string
+#  time_limit :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  sent       :boolean
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyString
-  emails: MyString
-  timer: 1
+  title: Message title
+  body: 
+  emails: zhukeepa@gmail.com
+  time_limit: 10
 
 two:
   title: MyString
   body: MyString
   emails: MyString
-  timer: 1
+  time_limit: 1
