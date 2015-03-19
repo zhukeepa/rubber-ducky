@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :autosave]
-  
+
+  def index
+    redirect_to "/auth/google_oauth2"
+  end
+
   def new
     @message = Message.new
   end
@@ -8,7 +12,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create(message_params)
     if @message.valid?
-      MessagesMailer.email(@message).deliver_later(wait: @message.time_limit)
+      MessagesWorker.perform_in(@message.time_limit, @message.id)
       redirect_to edit_message_url(@message)
     else 
       render 'new'
@@ -20,7 +24,10 @@ class MessagesController < ApplicationController
 
   def update
     @message.update!(message_params)
-    MessagesMailer.email(@message).deliver_later
+    @message_clone = @message.dup
+    @message_clone.save
+
+    MessagesWorker.perform_async(@message_clone.id)
     @message.update(sent: true)
 
     redirect_to root_url, notice: "Message sent!"
