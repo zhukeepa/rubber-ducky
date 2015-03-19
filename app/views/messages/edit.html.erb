@@ -3,7 +3,7 @@
 Send to: <%= @message.emails %> 
 <br />
 <%= form_for @message, data: { autosave_url: autosave_message_path(@message) } do |f| %>
-  <%= f.text_area :body, size: "100x10" %>
+  <%= f.text_area :body, class: 'ckeditor', size: "100x10" %>
   <br />
   <%= f.submit "Send!" %>
 <% end %>
@@ -12,5 +12,5 @@ Send to: <%= @message.emails %>
 
 <%= javascript_tag do %> 
   Timer.start("<%= @message.time_limit %>");
-  //startAutosave();
+  startAutosave();
 <% end %>

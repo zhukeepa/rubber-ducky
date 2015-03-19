@@ -1,3 +1,14 @@
+CKEDITOR.editorConfig = function( config ) {
+config.toolbar_basic = [
+    [ 'Save', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
+'-', 'Undo', 'Redo' ],
+    [ 'Bold', 'Italic', 'Underline',
+'-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
+];
+//You may reconfigure toolbar for all sessions
+config.toolbar = config.toolbar_basic;
+};
+
 this.Timer = {
   start: function(time) {
     setTimeout(function() { window.location = "/fail"; }, time * 1000);
@@ -19,7 +30,7 @@ this.startAutosave = function(prevBody) {
   var autosave_url = $(".edit_message").data("autosave-url");
 
   setInterval(function() {
-    var params = { message: { body: $("#message_body").val() } };
+    var params = { message: { body: CKEDITOR.instances['message_body'].getData() } };
     if (prevBody != params.message.body) {
       $.ajax({
         url: autosave_url, 
