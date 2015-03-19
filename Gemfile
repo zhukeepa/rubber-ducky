@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'figaro'
 gem 'sidekiq'
 
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2'
+
 gem 'pry'
 
 

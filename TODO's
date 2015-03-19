@@ -1,11 +1,10 @@
 refactoring
 - put autosave all under one method
-- validations
-  - field_with_errors ?? how to show on page?
 
 - make it one page webpage
   - make route naming prettier?
   - try it with sidekiq.rb cleared out
+
 
 - tests
   - testing views
