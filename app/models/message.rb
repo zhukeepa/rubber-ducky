@@ -7,9 +7,9 @@
 #  body       :string
 #  emails     :string
 #  time_limit :integer
+#  sent       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  sent       :boolean
 #
 
 class Message < ActiveRecord::Base

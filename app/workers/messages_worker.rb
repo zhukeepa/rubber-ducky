@@ -9,11 +9,14 @@ class MessagesWorker
     client.authorization.access_token = Token.last.fresh_token
     service = client.discovered_api('gmail')
 
-    msg         = Mail.new
-    msg.date    = Time.now
-    msg.subject = messsage.title
-    msg.body    = messsage.body
-    msg.to      = messsage.emails
+    msg          = Mail.new
+    msg.date     = Time.now
+    msg.subject  = messsage.title
+    msg.to       = messsage.emails
+    msg.html_part do 
+      content_type 'text/html; charset=UTF-8'
+      body messsage.body
+    end
 
     @email = client.execute(
         api_method: service.users.messages.to_h["gmail.users.messages.send"], 
