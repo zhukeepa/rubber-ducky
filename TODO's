@@ -1,10 +1,21 @@
 refactoring
-  - put autosave all under one method
-  - validations 
-  - make it one page webpage
-  - 
+- put autosave all under one method
+- validations
+  - field_with_errors ?? how to show on page?
+
+- make it one page webpage
+  - make route naming prettier?
+  - try it with sidekiq.rb cleared out
+
+- tests
+  - testing views
+  - tests from capybara
 
 Implement:
   - add OAunth or something
   - how to set simple editor for ckeditor?
-  - email validations
+  - edit sidekiq.rb
+  - push to heroku
+    - set password auth
+
+Questions: 

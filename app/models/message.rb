@@ -14,12 +14,10 @@
 
 class Message < ActiveRecord::Base
   validates :title, :time_limit, :emails, presence: true
+  validates :emails, format: { with: /\A([\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+(,?)\s*)+\z/i, 
+    message: "invalid email list" }
 
   def time_limit=(time_limit)
     write_attribute(:time_limit, time_limit.to_i*60)
-  end
-
-  def emails
-    read_attribute(:emails).split(',').map(&:strip)
   end
 end

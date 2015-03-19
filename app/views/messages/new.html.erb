@@ -1,3 +1,15 @@
+<% if @message.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@message.errors.count, "error") %> prohibited you from continuing:</h2>
+ 
+    <ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @message do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>

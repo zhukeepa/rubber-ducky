@@ -6,10 +6,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create!(message_params)
-    MessagesMailer.email(@message).deliver_later(wait: 2.seconds)#@message.time_limit)
-
-    redirect_to edit_message_url(@message)
+    @message = Message.create(message_params)
+    if @message.valid?
+      MessagesMailer.email(@message).deliver_later(wait: @message.time_limit)
+      redirect_to edit_message_url(@message)
+    else 
+      render 'new'
+    end
   end
 
   def edit

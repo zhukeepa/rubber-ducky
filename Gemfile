@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'figaro'
 gem 'sidekiq'
 
+gem 'pry'
+
 
 gem 'ckeditor_rails'
 

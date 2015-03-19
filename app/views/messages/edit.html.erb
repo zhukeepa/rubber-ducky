@@ -1,6 +1,6 @@
 <h1> <%= @message.title %> </h1>
 
-Send to: <%= @message.emails.to_sentence %> 
+Send to: <%= @message.emails %> 
 <br />
 <%= form_for @message, data: { autosave_url: autosave_message_path(@message) } do |f| %>
   <%= f.text_area :body, size: "100x10" %>
@@ -12,5 +12,5 @@ Send to: <%= @message.emails.to_sentence %>
 
 <%= javascript_tag do %> 
   Timer.start("<%= @message.time_limit %>");
-  startAutosave();
+  //startAutosave();
 <% end %>
