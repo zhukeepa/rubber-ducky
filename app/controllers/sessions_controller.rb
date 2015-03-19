@@ -10,5 +10,7 @@ class SessionsController < ApplicationController
       access_token: @auth['token'],
       refresh_token: @auth['refresh_token'],
       expires_at: Time.at(@auth['expires_at']).to_datetime)
+
+    redirect_to new_message_url
   end
 end

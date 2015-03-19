@@ -1,17 +1,14 @@
 refactoring
-- put autosave all under one method
-
 - make it one page webpage
-  - make route naming prettier?
-  - try it with sidekiq.rb cleared out
-
+- messsage and jid fix
+- try it with sidekiq.rb cleared out
+  - put autosave all under one method
 
 - tests
   - testing views
   - tests from capybara
 
 Implement:
-  - add OAunth or something
   - how to set simple editor for ckeditor?
   - edit sidekiq.rb
   - push to heroku

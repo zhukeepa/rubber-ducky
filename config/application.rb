@@ -29,5 +29,7 @@ module RubberDucky
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
     config.active_job.queue_adapter = :sidekiq
+
+    config.autoload_paths += %W(#{config.root}/app/workers)
   end
 end
