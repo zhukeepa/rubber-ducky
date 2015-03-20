@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     @message = Message.create(message_params)
 
     if @message.valid?
-      MessagesWorker.perform_in(@message.time_limit, @message.id)
+      MessagesWorker.perform_in(@message.time_limit, @message.id, session["token_id"].to_i)
       redirect_to edit_message_url(@message)
     else 
       render 'new'
@@ -25,7 +25,8 @@ class MessagesController < ApplicationController
 
   def update
     @message.update!(message_params)
-    MessagesWorker.new.perform(@message.id)
+    puts "\n\n\n\n\nToken id: #{session['token_id']}\n\n\n\n\n\n"
+    MessagesWorker.new.perform(@message.id, session["token_id"].to_i)
     @message.update(sent: true)
 
     redirect_to root_url, notice: "Message sent!"
