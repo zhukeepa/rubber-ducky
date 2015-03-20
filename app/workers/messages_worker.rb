@@ -15,11 +15,8 @@ class MessagesWorker
       end
     end
 
-#    t = session[:token_info]
-#    token = Token.create(access_token: t["access_token"], refresh_token: t["refresh_token"], expires_at: t["expires_at"])
-
     client = Google::APIClient.new
-    client.authorization.access_token = session[:access_token]
+    client.authorization.access_token = Token.find(session["token_id"].to_i).fresh_token
     service = client.discovered_api('gmail')
 
     client.execute(
