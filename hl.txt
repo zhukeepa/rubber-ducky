@@ -1,0 +1,101 @@
+2015-03-20T18:55:05.481971+00:00 app[web.1]: Processing by MessagesController#update as HTML
+2015-03-20T18:55:05.498024+00:00 app[web.1]: Google::APIClient::Request Sending API request get https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest {"User-Agent"=>"google-api-ruby-client/0.8.2 Linux/3.13.0-40-generic\n (gzip)", "Accept-Encoding"=>"gzip", "Content-Type"=>""}
+2015-03-20T18:55:05.490235+00:00 app[web.1]:   [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+2015-03-20T18:55:05.272075+00:00 app[web.1]: Processing by MessagesController#autosave as */*
+2015-03-20T18:55:05.281070+00:00 app[web.1]:   Rendered text template (0.0ms)
+2015-03-20T18:55:05.481999+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"z2fBNwFXOqMMJGpkUv8rEel3mnV9nVYrFcox2ILOltfeIRLaRn/+wlxkd9B66xmG/+Tlg3/eGBZXsK+Wy6ROAg==", "message"=>{"body"=>"<p>oes it?</p>\r\n"}, "commit"=>"Send!", "id"=>"7"}
+2015-03-20T18:55:05.269216+00:00 app[web.1]: Started PATCH "/messages/7/autosave" for 207.251.103.46 at 2015-03-20 18:55:05 +0000
+2015-03-20T18:55:05.278639+00:00 app[web.1]:   [1m[35mSQL (0.9ms)[0m  UPDATE "messages" SET "body" = $1, "updated_at" = $2 WHERE "messages"."id" = $3  [["body", "<p>oes it?</p>\n"], ["updated_at", "2015-03-20 18:55:05.276495"], ["id", 7]]
+2015-03-20T18:55:05.484947+00:00 app[web.1]:   [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+2015-03-20T18:55:05.281293+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 4.2ms)
+2015-03-20T18:55:05.275694+00:00 app[web.1]:   [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+2015-03-20T18:55:05.280544+00:00 app[web.1]:   [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+2015-03-20T18:55:05.483634+00:00 app[web.1]:   [1m[35mMessage Load (0.8ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT 1  [["id", 7]]
+2015-03-20T18:55:05.491710+00:00 app[web.1]:   [1m[35mMessage Load (1.2ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT 1  [["id", 7]]
+2015-03-20T18:55:05.274258+00:00 app[web.1]:   [1m[35mMessage Load (1.0ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT 1  [["id", 7]]
+2015-03-20T18:55:05.496074+00:00 app[web.1]:   [1m[36mToken Load (1.2ms)[0m  [1mSELECT  "tokens".* FROM "tokens"  ORDER BY "tokens"."id" DESC LIMIT 1[0m
+2015-03-20T18:55:05.487451+00:00 app[web.1]:   [1m[35mSQL (0.8ms)[0m  UPDATE "messages" SET "body" = $1, "updated_at" = $2 WHERE "messages"."id" = $3  [["body", "<p>oes it?</p>\r\n"], ["updated_at", "2015-03-20 18:55:05.485650"], ["id", 7]]
+2015-03-20T18:55:05.480015+00:00 app[web.1]: Started PATCH "/messages/7" for 207.251.103.46 at 2015-03-20 18:55:05 +0000
+2015-03-20T18:55:05.568431+00:00 app[web.1]: Decompressed (55261 bytes)
+2015-03-20T18:55:05.568528+00:00 app[web.1]: Google::APIClient::Request Result: 200 {"expires"=>"Fri, 20 Mar 2015 18:55:55 GMT", "date"=>"Fri, 20 Mar 2015 18:50:55 GMT", "etag"=>"\"ye6orv2F-1npMW3u9suM3a7C5Bo/5025FW69eRcOdd_mm4_PTDhGzHE\"", "vary"=>"Origin, X-Origin", "content-type"=>"application/json; charset=UTF-8", "x-content-type-options"=>"nosniff", "x-frame-options"=>"SAMEORIGIN", "x-xss-protection"=>"1; mode=block", "content-length"=>"6573", "server"=>"GSE", "age"=>"250", "cache-control"=>"public, max-age=300, must-revalidate, no-transform", "alternate-protocol"=>"443:quic,p=0.5", "connection"=>"close"}
+2015-03-20T18:55:05.696088+00:00 app[web.1]: Google::APIClient::Request Sending API request post https://www.googleapis.com/gmail/v1/users/me/messages/send {"User-Agent"=>"google-api-ruby-client/0.8.2 Linux/3.13.0-40-generic\n (gzip)", "Content-Type"=>"application/json", "Accept-Encoding"=>"gzip", "Authorization"=>"Bearer ya29.PAFZC8evBMvi9f2-H7VNdeLrcqx5ZhRqQfve2ya3v8-cyCHj7LGKqAtvtpDlGX_C3jPLsrFxIDA75w", "Cache-Control"=>"no-store"}
+2015-03-20T18:55:05.568022+00:00 app[web.1]: Decompressing gzip encoded response (6573 bytes)
+2015-03-20T18:55:05.995667+00:00 heroku[router]: at=info method=POST path="/messages/7" host=ancient-earth-8054.herokuapp.com request_id=1d127f5e-2c87-4515-97ce-48cbd1db4fc4 fwd="207.251.103.46" dyno=web.1 connect=1ms service=515ms status=302 bytes=990
+2015-03-20T18:55:05.979272+00:00 app[web.1]: Decompressed (91 bytes)
+2015-03-20T18:55:05.979422+00:00 app[web.1]: Google::APIClient::Request Result: 200 {"cache-control"=>"no-cache, no-store, max-age=0, must-revalidate", "pragma"=>"no-cache", "expires"=>"Fri, 01 Jan 1990 00:00:00 GMT", "date"=>"Fri, 20 Mar 2015 18:55:05 GMT", "etag"=>"\"GD6exbiTbN5pLfan2XaW6RvfFKo/EcCsWM9Mzvs245vOBHk8rSM14xY\"", "vary"=>"Origin, X-Origin", "content-type"=>"application/json; charset=UTF-8", "x-content-type-options"=>"nosniff", "x-frame-options"=>"SAMEORIGIN", "x-xss-protection"=>"1; mode=block", "server"=>"GSE", "alternate-protocol"=>"443:quic,p=0.5", "connection"=>"close", "transfer-encoding"=>"chunked"}
+2015-03-20T18:55:05.981008+00:00 app[web.1]:   [1m[35m (1.0ms)[0m  BEGIN
+2015-03-20T18:55:05.986197+00:00 app[web.1]:   [1m[35m (1.7ms)[0m  COMMIT
+2015-03-20T18:55:05.987444+00:00 app[web.1]: Completed 302 Found in 505ms (ActiveRecord: 10.7ms)
+2015-03-20T18:55:05.978969+00:00 app[web.1]: Decompressing gzip encoded response (85 bytes)
+2015-03-20T18:55:05.984162+00:00 app[web.1]:   [1m[36mSQL (0.9ms)[0m  [1mUPDATE "messages" SET "sent" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["sent", "t"], ["updated_at", "2015-03-20 18:55:05.981764"], ["id", 7]]
+2015-03-20T18:55:05.987233+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/
+2015-03-20T18:55:06.293974+00:00 heroku[router]: at=info method=GET path="/" host=ancient-earth-8054.herokuapp.com request_id=99c78a5b-17e9-466c-aaf0-490ffb589a6b fwd="207.251.103.46" dyno=web.1 connect=2ms service=12ms status=302 bytes=1115
+2015-03-20T18:55:06.323184+00:00 heroku[router]: at=info method=GET path="/auth/google_oauth2" host=ancient-earth-8054.herokuapp.com request_id=35a77c84-a493-418a-b8b3-6a421088b3a8 fwd="207.251.103.46" dyno=web.1 connect=2ms service=9ms status=302 bytes=1759
+2015-03-20T18:55:06.315870+00:00 app[web.1]: I, [2015-03-20T18:55:06.315769 #3]  INFO -- omniauth: (google_oauth2) Request phase initiated.
+2015-03-20T18:55:06.289541+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2015-03-20T18:55:06.283392+00:00 app[web.1]: Started GET "/" for 207.251.103.46 at 2015-03-20 18:55:06 +0000
+2015-03-20T18:55:06.286120+00:00 app[web.1]: Processing by MessagesController#index as HTML
+2015-03-20T18:55:06.421638+00:00 app[web.1]: I, [2015-03-20T18:55:06.421562 #3]  INFO -- omniauth: (google_oauth2) Callback phase initiated.
+2015-03-20T18:55:06.287580+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/auth/google_oauth2
+2015-03-20T18:55:06.314622+00:00 app[web.1]: Started GET "/auth/google_oauth2" for 207.251.103.46 at 2015-03-20 18:55:06 +0000
+2015-03-20T18:55:06.418358+00:00 app[web.1]: Started GET "/auth/google_oauth2/callback?state=b3f2449490d0e7401ff0dedd077d9ddbbdb41042f4184848&code=4/2RJHfGvhR38hB8YAlFPZpdkzqCJbKbYsfWJB7L9xM1I.4vmeBbnSkfsYJvIeHux6iLYb4RNxmAI" for 207.251.103.46 at 2015-03-20 18:55:06 +0000
+2015-03-20T18:55:06.709600+00:00 app[web.1]: Processing by SessionsController#create as HTML
+2015-03-20T18:55:06.711765+00:00 app[web.1]:   [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+2015-03-20T18:55:06.767001+00:00 app[web.1]:   Rendered messages/new.html.erb within layouts/application (13.8ms)
+2015-03-20T18:55:06.720579+00:00 app[web.1]: Completed 302 Found in 10ms (ActiveRecord: 4.8ms)
+2015-03-20T18:55:06.748868+00:00 app[web.1]: Started GET "/messages/new" for 207.251.103.46 at 2015-03-20 18:55:06 +0000
+2015-03-20T18:55:06.709610+00:00 app[web.1]:   Parameters: {"state"=>"b3f2449490d0e7401ff0dedd077d9ddbbdb41042f4184848", "code"=>"4/2RJHfGvhR38hB8YAlFPZpdkzqCJbKbYsfWJB7L9xM1I.4vmeBbnSkfsYJvIeHux6iLYb4RNxmAI", "provider"=>"google_oauth2"}
+2015-03-20T18:55:06.720572+00:00 app[web.1]:   [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+2015-03-20T18:55:06.720577+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/messages/new
+2015-03-20T18:55:06.751201+00:00 app[web.1]: Processing by MessagesController#new as HTML
+2015-03-20T18:55:06.714856+00:00 app[web.1]:   [1m[35mSQL (0.9ms)[0m  INSERT INTO "tokens" ("access_token", "expires_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access_token", "ya29.PAE-vc50uAk1pBspolE7D98fFmIOtkPwAylf6dC5nGmhAGhJy0Kp5urcLvJBpP58u6S4EgQCjLSjtA"], ["expires_at", "2015-03-20 19:55:06.000000"], ["created_at", "2015-03-20 18:55:06.712296"], ["updated_at", "2015-03-20 18:55:06.712296"]]
+2015-03-20T18:55:06.769816+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+2015-03-20T18:55:06.727010+00:00 heroku[router]: at=info method=GET path="/auth/google_oauth2/callback?state=b3f2449490d0e7401ff0dedd077d9ddbbdb41042f4184848&code=4/2RJHfGvhR38hB8YAlFPZpdkzqCJbKbYsfWJB7L9xM1I.4vmeBbnSkfsYJvIeHux6iLYb4RNxmAI" host=ancient-earth-8054.herokuapp.com request_id=2dcd72fa-1bb6-415c-bc3e-423da5850b8e fwd="207.251.103.46" dyno=web.1 connect=1ms service=316ms status=302 bytes=1014
+2015-03-20T18:55:06.774366+00:00 heroku[router]: at=info method=GET path="/messages/new" host=ancient-earth-8054.herokuapp.com request_id=0a77c60b-4780-489e-9218-2f4a322dc10f fwd="207.251.103.46" dyno=web.1 connect=2ms service=28ms status=200 bytes=2228
+2015-03-20T18:55:28.181809+00:00 heroku[router]: at=info method=POST path="/messages" host=ancient-earth-8054.herokuapp.com request_id=69bddae7-88a7-4a1f-90df-7ae9c5d505ad fwd="207.251.103.46" dyno=web.1 connect=2ms service=17ms status=302 bytes=1081
+2015-03-20T18:55:28.227078+00:00 heroku[router]: at=info method=GET path="/messages/8/edit" host=ancient-earth-8054.herokuapp.com request_id=bc65d002-6ff5-43fc-b84b-ef1b95088873 fwd="207.251.103.46" dyno=web.1 connect=1ms service=21ms status=200 bytes=2126
+2015-03-20T18:55:28.166408+00:00 app[web.1]: Started POST "/messages" for 207.251.103.46 at 2015-03-20 18:55:28 +0000
+2015-03-20T18:55:28.172935+00:00 app[web.1]:   [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "messages" ("title", "time_limit", "emails", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "take 2"], ["time_limit", 60], ["emails", "zhukeepa@gmail.com"], ["created_at", "2015-03-20 18:55:28.171205"], ["updated_at", "2015-03-20 18:55:28.171205"]]
+2015-03-20T18:55:28.205720+00:00 app[web.1]: Started GET "/messages/8/edit" for 207.251.103.46 at 2015-03-20 18:55:28 +0000
+2015-03-20T18:55:28.214060+00:00 app[web.1]:   Rendered messages/edit.html.erb within layouts/application (1.1ms)
+2015-03-20T18:55:28.176855+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/messages/8/edit
+2015-03-20T18:55:28.175029+00:00 app[web.1]:   [1m[35m (1.6ms)[0m  COMMIT
+2015-03-20T18:55:28.177098+00:00 app[web.1]: Completed 302 Found in 9ms (ActiveRecord: 3.0ms)
+2015-03-20T18:55:28.208333+00:00 app[web.1]:   Parameters: {"id"=>"8"}
+2015-03-20T18:55:28.215009+00:00 app[web.1]: Completed 200 OK in 7ms (Views: 2.3ms | ActiveRecord: 0.7ms)
+2015-03-20T18:55:28.168301+00:00 app[web.1]: Processing by MessagesController#create as HTML
+2015-03-20T18:55:28.170884+00:00 app[web.1]:   [1m[35m (0.6ms)[0m  BEGIN
+2015-03-20T18:55:28.168387+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"TLkKUhMwePk+j1aEdCWkFKtWbXKVbSaeUomFOBXTcnVd/9m/VBi8mG7PSzBcMZaDvcUShJcuaKMQ8xt2XLmqoA==", "message"=>{"title"=>"take 2", "time_limit"=>"1", "emails"=>"zhukeepa@gmail.com"}, "commit"=>"Start writing!"}
+2015-03-20T18:55:28.209997+00:00 app[web.1]:   [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT 1[0m  [["id", 8]]
+2015-03-20T18:55:28.208211+00:00 app[web.1]: Processing by MessagesController#edit as HTML
+2015-03-20T18:56:39.152587+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/
+2015-03-20T18:56:39.155307+00:00 heroku[router]: at=info method=GET path="/fail" host=ancient-earth-8054.herokuapp.com request_id=effbb77f-842a-4164-9bbe-0be5ee587001 fwd="207.251.103.46" dyno=web.1 connect=1ms service=9ms status=302 bytes=1072
+2015-03-20T18:56:39.151679+00:00 app[web.1]: Processing by MessagesController#fail as HTML
+2015-03-20T18:56:39.185852+00:00 heroku[router]: at=info method=GET path="/" host=ancient-earth-8054.herokuapp.com request_id=f8622ee2-1213-405d-9923-e7f16749053d fwd="207.251.103.46" dyno=web.1 connect=1ms service=11ms status=302 bytes=1108
+2015-03-20T18:56:39.211715+00:00 app[web.1]: I, [2015-03-20T18:56:39.211636 #3]  INFO -- omniauth: (google_oauth2) Request phase initiated.
+2015-03-20T18:56:39.148796+00:00 app[web.1]: Started GET "/fail" for 207.251.103.46 at 2015-03-20 18:56:39 +0000
+2015-03-20T18:56:39.179463+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/auth/google_oauth2
+2015-03-20T18:56:39.329039+00:00 app[web.1]: Started GET "/auth/google_oauth2/callback?state=d4effc6a221342026a0ebecd00dea2b3457aa42595247f71&code=4/oxzvjN7a3mUBrGfx2BgNxBYZDXUdGpnK7Nlqln19WK8.0sY-34JWLWUSJvIeHux6iLYFtxZxmAI" for 207.251.103.46 at 2015-03-20 18:56:39 +0000
+2015-03-20T18:56:39.152749+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2015-03-20T18:56:39.179842+00:00 app[web.1]: Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+2015-03-20T18:56:39.177979+00:00 app[web.1]: Processing by MessagesController#index as HTML
+2015-03-20T18:56:39.330896+00:00 app[web.1]: I, [2015-03-20T18:56:39.330826 #3]  INFO -- omniauth: (google_oauth2) Callback phase initiated.
+2015-03-20T18:56:39.175243+00:00 app[web.1]: Started GET "/" for 207.251.103.46 at 2015-03-20 18:56:39 +0000
+2015-03-20T18:56:39.223286+00:00 heroku[router]: at=info method=GET path="/auth/google_oauth2" host=ancient-earth-8054.herokuapp.com request_id=903b5efa-937c-4a0e-80b2-9c54978b5ac8 fwd="207.251.103.46" dyno=web.1 connect=0ms service=17ms status=302 bytes=1709
+2015-03-20T18:56:39.210257+00:00 app[web.1]: Started GET "/auth/google_oauth2" for 207.251.103.46 at 2015-03-20 18:56:39 +0000
+2015-03-20T18:56:39.732682+00:00 heroku[router]: at=info method=GET path="/assets/application-c06dd6a542ea15147e6794e03643f87c.css" host=ancient-earth-8054.herokuapp.com request_id=50e43372-2e6d-4a86-8013-020c0bd90171 fwd="207.251.103.46" dyno=web.1 connect=1ms service=7ms status=304 bytes=204
+2015-03-20T18:56:39.654198+00:00 heroku[router]: at=info method=GET path="/auth/google_oauth2/callback?state=d4effc6a221342026a0ebecd00dea2b3457aa42595247f71&code=4/oxzvjN7a3mUBrGfx2BgNxBYZDXUdGpnK7Nlqln19WK8.0sY-34JWLWUSJvIeHux6iLYFtxZxmAI" host=ancient-earth-8054.herokuapp.com request_id=50160d7b-886b-49c5-80ad-07b6d185502d fwd="207.251.103.46" dyno=web.1 connect=0ms service=329ms status=302 bytes=1096
+2015-03-20T18:56:39.686834+00:00 heroku[router]: at=info method=GET path="/messages/new" host=ancient-earth-8054.herokuapp.com request_id=b64554d8-2384-46ac-87b8-ff912f7dfc1f fwd="207.251.103.46" dyno=web.1 connect=1ms service=14ms status=200 bytes=2334
+2015-03-20T18:56:39.642040+00:00 app[web.1]: Processing by SessionsController#create as HTML
+2015-03-20T18:56:39.642054+00:00 app[web.1]:   Parameters: {"state"=>"d4effc6a221342026a0ebecd00dea2b3457aa42595247f71", "code"=>"4/oxzvjN7a3mUBrGfx2BgNxBYZDXUdGpnK7Nlqln19WK8.0sY-34JWLWUSJvIeHux6iLYFtxZxmAI", "provider"=>"google_oauth2"}
+2015-03-20T18:56:39.644970+00:00 app[web.1]:   [1m[35m (0.8ms)[0m  BEGIN
+2015-03-20T18:56:39.679197+00:00 app[web.1]: Processing by MessagesController#new as HTML
+2015-03-20T18:56:39.650722+00:00 app[web.1]:   [1m[35m (3.3ms)[0m  COMMIT
+2015-03-20T18:56:39.651449+00:00 app[web.1]: Completed 302 Found in 9ms (ActiveRecord: 5.0ms)
+2015-03-20T18:56:39.683645+00:00 app[web.1]: Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+2015-03-20T18:56:39.646955+00:00 app[web.1]:   [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tokens" ("access_token", "expires_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access_token", "ya29.PAEitW-Ii3Pt6bjo6fpR10QEWDZ3wEU88g91Fo1JIyiTCYaJ7_aMJ_67jO39NBalf9x9Fxi_fbYEew"], ["expires_at", "2015-03-20 19:56:39.000000"], ["created_at", "2015-03-20 18:56:39.645089"], ["updated_at", "2015-03-20 18:56:39.645089"]]
+2015-03-20T18:56:39.678532+00:00 app[web.1]: Started GET "/messages/new" for 207.251.103.46 at 2015-03-20 18:56:39 +0000
+2015-03-20T18:56:39.651196+00:00 app[web.1]: Redirected to http://ancient-earth-8054.herokuapp.com/messages/new
+2015-03-20T18:56:39.682745+00:00 app[web.1]:   Rendered messages/new.html.erb within layouts/application (2.4ms)
+2015-03-20T18:56:39.742053+00:00 heroku[router]: at=info method=GET path="/assets/application-6f67ead4b4191bdfc44368852e70581c.js" host=ancient-earth-8054.herokuapp.com request_id=1fe0ab37-16c2-42a7-ab92-7618d740fa19 fwd="207.251.103.46" dyno=web.1 connect=0ms service=4ms status=304 bytes=218
+2015-03-20T18:56:39.845681+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=ancient-earth-8054.herokuapp.com request_id=ea67f2cb-9323-4a80-b9d4-799b034fc8c1 fwd="207.251.103.46" dyno=web.1 connect=1ms service=4ms status=304 bytes=133
