@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(message_params)
+
     if @message.valid?
       MessagesWorker.perform_in(@message.time_limit, @message.id)
       redirect_to edit_message_url(@message)
