@@ -1,6 +1,4 @@
 refactoring
-- make it one page webpage
-- messsage and jid fix
 - try it with sidekiq.rb cleared out
   - put autosave all under one method
 

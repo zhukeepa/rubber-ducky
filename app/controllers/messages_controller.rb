@@ -24,10 +24,7 @@ class MessagesController < ApplicationController
 
   def update
     @message.update!(message_params)
-    @message_clone = @message.dup
-    @message_clone.save
-
-    MessagesWorker.perform_async(@message_clone.id)
+    MessagesWorker.new.perform(@message.id)
     @message.update(sent: true)
 
     redirect_to root_url, notice: "Message sent!"
