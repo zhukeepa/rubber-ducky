@@ -15,6 +15,7 @@ class MessagesWorker
       end
     end
 
+    puts "\n\n\n\n\nToken id: #{session["token_id"]}\n\n\n\n\n\n"
     client = Google::APIClient.new
     client.authorization.access_token = Token.find(session["token_id"].to_i).fresh_token
     service = client.discovered_api('gmail')
