@@ -57,3 +57,8 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
 end
+
+group :production do 
+  gem 'rails_12factor'
+  gem 'pg'
+end

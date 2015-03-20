@@ -20,7 +20,7 @@ class MessagesWorker
     service = client.discovered_api('gmail')
 
     client.execute(
-      api_method: service.users.messages.to_h["gmail.users.messages.send"], #plain .send accesses Object#send
+      api_method: service.users.messages.to_h["gmail.users.messages.send"], # don't want Object#send
       body_object: { raw: Base64.urlsafe_encode64(mail.to_s) },
       parameters: { userId: 'me' }
     )
