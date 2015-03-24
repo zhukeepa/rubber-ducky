@@ -1,6 +1,4 @@
-- edit -> compose
-- store session info with message
-  - 
+- local to postgres
 
 refactoring
 - try it with sidekiq.rb cleared out

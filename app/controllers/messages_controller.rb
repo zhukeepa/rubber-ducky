@@ -14,18 +14,18 @@ class MessagesController < ApplicationController
 
     if @message.valid?
       MessagesWorker.perform_in(@message.time_limit, @message.id)
-      redirect_to edit_message_url(@message)
+      redirect_to compose_messages_url
     else 
       render 'new'
     end
   end
 
-  def edit
+  def compose
+    @message = Token.find(session['token_id']).messages.last
   end
 
   def update
     @message.update!(message_params)
-    puts "\n\n\n\n\nToken id: #{session['token_id']}\n\n\n\n\n\n"
     MessagesWorker.new.perform(@message.id)
     @message.update(sent: true)
 
