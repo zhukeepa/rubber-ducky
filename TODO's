@@ -1,12 +1,8 @@
 - local to postgres
 
 refactoring
-- try it with sidekiq.rb cleared out
-  - put autosave all under one method
-
-- tests
-  - testing views
-  - tests from capybara
+- new editor for ckeditor 
+- set up devise authentication
 
 Implement:
   - how to set simple editor for ckeditor?

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :update, :autosave]
+  before_action :set_message, only: [:edit, :send_message]
 
   def index
     redirect_to "/auth/google_oauth2"
@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
     @message = Token.find(session['token_id']).messages.last
   end
 
-  def update
+  def send_message
     @message.update!(message_params)
     MessagesWorker.new.perform(@message.id)
     @message.update(sent: true)
@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
     redirect_to root_url, notice: "Message sent!"
   end
 
-  def autosave
+  def update
     @message.update(message_params)
 
     render text: params

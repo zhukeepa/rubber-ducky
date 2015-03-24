@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => 'sessions#create'
 
   resources :messages, only: [:new, :create, :update] do 
-    patch 'autosave', on: :member
+    patch 'send_message', on: :member
     get 'compose', on: :collection
   end
 end
