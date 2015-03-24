@@ -1,7 +1,7 @@
 class MessagesWorker
   include Sidekiq::Worker
 
-  def perform(message_id, token_id)
+  def perform(message_id)
     message = Message.find(message_id)
     return if message.sent
 
@@ -16,13 +16,12 @@ class MessagesWorker
     end
 
     client = Google::APIClient.new
-    client.authorization.access_token = Token.find(token_id).fresh_token
+    client.authorization.access_token = message.token.fresh_token
     service = client.discovered_api('gmail')
 
     client.execute(
       api_method: service.users.messages.to_h["gmail.users.messages.send"], # don't want Object#send
       body_object: { raw: Base64.urlsafe_encode64(mail.to_s) },
-      parameters: { userId: 'me' }
-    )
+      parameters: { userId: 'me' })
   end
 end

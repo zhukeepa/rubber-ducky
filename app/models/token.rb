@@ -14,6 +14,8 @@ require 'net/http'
 require 'json'
 
 class Token < ActiveRecord::Base
+  has_many :messages
+
   def to_params
     {'refresh_token' => refresh_token,
     'client_id' => ENV['CLIENT_ID'],

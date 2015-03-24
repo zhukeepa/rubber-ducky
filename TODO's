@@ -1,3 +1,7 @@
+- edit -> compose
+- store session info with message
+  - 
+
 refactoring
 - try it with sidekiq.rb cleared out
   - put autosave all under one method
@@ -8,8 +12,5 @@ refactoring
 
 Implement:
   - how to set simple editor for ckeditor?
-  - edit sidekiq.rb
-  - push to heroku
-    - set password auth
 
-Questions: 
+- how should the routes be named
