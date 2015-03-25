@@ -27,7 +27,6 @@ class MessagesController < ApplicationController
   def send_message
     @message.update!(message_params)
     MessagesWorker.new.perform(@message.id)
-    @message.update(sent: true)
 
     redirect_to root_url, notice: "Message sent!"
   end

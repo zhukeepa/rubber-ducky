@@ -1,14 +1,3 @@
-CKEDITOR.editorConfig = function( config ) {
-config.toolbar_basic = [
-    [ 'Save', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
-'-', 'Undo', 'Redo' ],
-    [ 'Bold', 'Italic', 'Underline',
-'-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
-];
-//You may reconfigure toolbar for all sessions
-config.toolbar = config.toolbar_basic;
-};
-
 this.Timer = {
   start: function(time) {
     setTimeout(function() { window.location = "/fail"; }, time * 1000);
@@ -41,4 +30,3 @@ this.startAutosave = function(prevBody) {
     }
   }, 1000);
 }
-//check if content changed
