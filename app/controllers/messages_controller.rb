@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :send_message]
+  before_action :set_message, only: [:edit, :update, :send_message]
 
   def index
     redirect_to "/auth/google_oauth2"

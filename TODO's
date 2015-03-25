@@ -1,10 +1,3 @@
-- local to postgres
-
-refactoring
 - new editor for ckeditor 
 - set up devise authentication
-
-Implement:
-  - how to set simple editor for ckeditor?
-
-- how should the routes be named
+- delete messages upon sending. 
