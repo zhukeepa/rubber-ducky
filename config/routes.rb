@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'messages#index'#/auth/google_oauth2' => 'sessions#create'
+  root 'messages#index'
   get 'fail', to: 'messages#fail'
   get "/auth/:provider/callback" => 'sessions#create'
 

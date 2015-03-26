@@ -10,10 +10,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params.merge(token_id: session['token_id']))
+    @message = Message.new(message_params.merge(token_id: session[:token_id]))
 
-    if @message.valid?
+    if @message.save
       MessagesWorker.perform_in(@message.time_limit, @message.id)
+      session[:message_id] = @message.id 
       redirect_to compose_messages_url
     else 
       render 'new'
@@ -21,12 +22,14 @@ class MessagesController < ApplicationController
   end
 
   def compose
-    @message = Token.find(session['token_id']).messages.last
+    @message = Message.find(session[:message_id])
   end
 
   def send_message
     @message.update!(message_params)
-    MessagesWorker.new.perform(@message.id)
+    @message.deliver
+
+    session[:message_id] = ''
 
     redirect_to root_url, notice: "Message sent!"
   end

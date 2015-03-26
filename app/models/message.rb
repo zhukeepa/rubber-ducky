@@ -25,8 +25,14 @@ class Message < ActiveRecord::Base
   end
 
   def deliver
+    GoogleMailer.deliver(email_string, token.fresh_token)
+    destroy
+  end
+
+private 
+  def email_string
     message = self
-    mail = Mail.new do 
+    Mail.new do 
       date    Time.now
       subject message.title
       to      message.emails
@@ -34,17 +40,6 @@ class Message < ActiveRecord::Base
         content_type 'text/html; charset=UTF-8'
         body          message.body
       end
-    end
-
-    client = Google::APIClient.new
-    client.authorization.access_token = token.fresh_token
-    service = client.discovered_api('gmail')
-
-    client.execute(
-      api_method: service.users.messages.to_h["gmail.users.messages.send"], # don't want Object#send
-      body_object: { raw: Base64.urlsafe_encode64(mail.to_s) },
-      parameters: { userId: 'me' })
-
-    destroy
-  end
+    end.to_s
+  end 
 end
