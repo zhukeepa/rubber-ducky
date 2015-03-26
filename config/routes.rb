@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'messages#index'
+  root 'messages#new'
   get 'fail', to: 'messages#fail'
   get "/auth/:provider/callback" => 'sessions#create'
 

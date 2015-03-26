@@ -9,10 +9,9 @@ class GoogleMailer < Google::APIClient
   end 
 
   def deliver(message)
-    execute(
-      api_method: send_api_method,
-      body_object: { raw: Base64.urlsafe_encode64(message) },
-      parameters: { userId: 'me' })
+    execute(api_method: send_api_method,
+            body_object: { raw: Base64.urlsafe_encode64(message) },
+            parameters: { userId: 'me' })
   end
 
 private 

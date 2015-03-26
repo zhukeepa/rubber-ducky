@@ -16,13 +16,23 @@
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
-  # test "email setter should return list of emails from comma-separated" do
-  #   message = Message.new(emails: "alex@example.com  , damien@example.org  ")
-  #   assert_equal ["alex@example.com", "damien@example.org"], message.emails
-  # end
+  setup do 
+    @one = messages(:one)
+  end 
 
-  test "time limit should be converted to seconds" do 
+  test "time_limit should be converted to seconds" do 
     message = Message.new(time_limit: 1)
     assert_equal 60, message.time_limit
+  end
+
+  test "emails valid if it is comma-separated list of emails" do 
+    assert_equal true, @one.valid? 
+    @one.emails = "zhukeepa@gmail.com, alex.zhu.1994@gmail.com"
+    assert_equal true, @one.valid? 
+  end
+
+  test "emails valid only if it is comma-separated list of emails" do 
+    @one.emails = "zhukeepa@gmail.com, asdfg, alex.zhu.1994@gmail.com"
+    assert_equal false, @one.valid? 
   end
 end

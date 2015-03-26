@@ -17,7 +17,7 @@
 
 one:
   title: Message title
-  body: 
+  body: "Hello world!"
   emails: zhukeepa@gmail.com
   time_limit: 10
 

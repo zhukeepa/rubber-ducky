@@ -13,11 +13,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  access_token: MyString
-  refresh_token: MyString
-  expires_at: 2015-03-19 13:11:35
-
-two:
-  access_token: MyString
-  refresh_token: MyString
-  expires_at: 2015-03-19 13:11:35
+  access_token: ya29.QgGB-CGYt_K5xrY8A1qfn0wn5FUYOIx__zdvhPm3iBIUnWcFvuW9lWLbXG67t8d76BSm3zwVvExi3Q
+  refresh_token: 1/r84Ss0vE9qMVi9xTgo8PMUgMX_9qP8FW_NcPj5qWQa0MEudVrK5jSpoR30zcRFq6
+  expires_at: 1427404762

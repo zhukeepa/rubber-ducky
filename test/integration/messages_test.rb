@@ -1,23 +1,30 @@
 require 'test_helper'
 
-
 class MessagesTest < ActionDispatch::IntegrationTest
   setup do 
-    @one = messages(:one)
+    @token = tokens(:one)
+    
   end 
 
-  # test "the truth" do
-  #   visit '/'
+  test "message submits properly" do
+    visit new_message_url
 
-  #   within '#new_message' do 
-  #     fill_in :message_title, with: @one.title
-  #     fill_in :message_time_limit, with: @one.time_limit
-  #     fill_in :message_emails, with: @one.emails
+    puts html
+    if first(:Email) == nil
+      puts "GRAGH"
+      raise 
+    end 
 
-  #     click_button 'Start writing!'
-  #   end
+    fill_in :Email,  with: 'alexthrowaway123zz'
+    fill_in :Passwd, with: 'alexthrowaway123zzalexthrowaway123zz'
 
-  #   assert has_content?(@one.title), html
+    click_button 'Sign in'
 
-  # end
+    until current_path == '/'
+      sleep(1.seconds)
+      puts current_path
+    end
+
+    assert current_path == '/'
+  end
 end

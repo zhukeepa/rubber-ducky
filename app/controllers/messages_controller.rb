@@ -1,9 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate
   before_action :set_message, only: [:edit, :update, :send_message]
-
-  def index
-    redirect_to "/auth/google_oauth2"
-  end
 
   def new
     @message = Message.new
@@ -45,6 +42,10 @@ class MessagesController < ApplicationController
   end
 
 private
+  def authenticate
+    redirect_to "/auth/google_oauth2" unless session[:token_id]
+  end
+
   def message_params 
     params[:message].permit(:title, :time_limit, :emails, :body)
   end
