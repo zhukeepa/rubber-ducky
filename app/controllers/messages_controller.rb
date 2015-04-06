@@ -2,6 +2,15 @@ class MessagesController < ApplicationController
   before_action :authenticate
   before_action :set_message, only: [:edit, :update, :send_message]
 
+
+  if Rails.env.test?
+    prepend_before_action :set_token_id
+    def set_token_id
+      session[:token_id] = ENV['TOKEN_ID']
+    end
+  end
+
+
   def new
     @message = Message.new
   end
