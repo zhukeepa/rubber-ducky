@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+E-mail writing totally follows the 80/20 rule. I often find myself composing the bulk of an email in ~5 minutes, and then spending ~20 minutes making tiny improvements that are basically irrelevant. This is a horrible waste of time. 
 
-Things you may want to cover:
+I wrote this app to help me not do that: http://ancient-earth-8054.herokuapp.com. 
 
-* Ruby version
+After signing into your GMail account, you write in the title of the email, your recipients, and your time limit. You are then taken to a page with a textbox and a send button. If you don't press the send button yourself by the time limit (e.g. if you run out of time or close the page), whatever was in the textbox will get sent. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This app was a fun foray into Sidekiq, OAuth, and the Rails mailer, and marked my first usage of integration testing. 
