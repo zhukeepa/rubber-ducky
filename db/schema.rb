@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325170721) do
+ActiveRecord::Schema.define(version: 20150704183648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,13 @@ ActiveRecord::Schema.define(version: 20150325170721) do
     t.string   "body"
     t.string   "emails"
     t.integer  "time_limit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "token_id"
+    t.boolean  "debug"
+    t.boolean  "debug_form"
+    t.boolean  "reflection_form"
+    t.string   "form_load"
   end
 
   add_index "messages", ["token_id"], name: "index_messages_on_token_id", using: :btree

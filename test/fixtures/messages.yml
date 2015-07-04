@@ -2,15 +2,18 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  body       :string
-#  emails     :string
-#  time_limit :integer
-#  sent       :boolean          default(FALSE)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  token_id   :integer
+#  id              :integer          not null, primary key
+#  title           :string
+#  body            :string
+#  emails          :string
+#  time_limit      :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  token_id        :integer
+#  debug           :boolean
+#  debug_form      :boolean
+#  reflection_form :boolean
+#  form_load       :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

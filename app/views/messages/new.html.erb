@@ -20,5 +20,15 @@
   <%= f.label :emails %>
   <%= f.text_field :emails %>  
   <br />
+  <div>
+    <%= f.label "Choose which form to load:" %>
+    <br />
+    <%= f.radio_button :form_load, 'none', checked: true %> None
+    <br />
+    <%= f.radio_button :form_load, 'murphyjitsu' %> Murphyjitsu
+    <br />
+    <%= f.radio_button :form_load, 'reflection' %> Reflection
+  </div>
+  <br />
   <%= f.submit "Start writing!" %>
 <% end %>

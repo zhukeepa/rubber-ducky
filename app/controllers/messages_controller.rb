@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
     end
   end
 
-
   def new
     @message = Message.new
   end
@@ -56,7 +55,7 @@ private
   end
 
   def message_params 
-    params[:message].permit(:title, :time_limit, :emails, :body)
+    params[:message].permit(:title, :time_limit, :emails, :body, :form_load)
   end
 
   def set_message

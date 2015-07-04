@@ -2,15 +2,18 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  body       :string
-#  emails     :string
-#  time_limit :integer
-#  sent       :boolean          default(FALSE)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  token_id   :integer
+#  id              :integer          not null, primary key
+#  title           :string
+#  body            :string
+#  emails          :string
+#  time_limit      :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  token_id        :integer
+#  debug           :boolean
+#  debug_form      :boolean
+#  reflection_form :boolean
+#  form_load       :string
 #
 
 class Message < ActiveRecord::Base
@@ -19,6 +22,12 @@ class Message < ActiveRecord::Base
     message: "invalid email list" }
 
   belongs_to :token
+
+  def initialize(*args)
+    super
+
+    load_form
+  end
 
   def time_limit=(time_limit)
     write_attribute(:time_limit, time_limit.to_i*60)
@@ -41,6 +50,14 @@ private
         body          message.body
       end
     end.to_s
-  end 
+  end
+
+  def load_form
+    return unless self.form_load
+
+    filename = "#{self.form_load}_form.html"
+    filename_full = File.join(Rails.root, 'lib', 'assets', filename)
+    self.body = File.read(filename_full)
+  end
 end
 
