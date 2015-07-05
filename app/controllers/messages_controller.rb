@@ -1,3 +1,5 @@
+require 'resolv-replace'
+
 class MessagesController < ApplicationController
   before_action :authenticate
   before_action :set_message, only: [:edit, :update, :send_message]
